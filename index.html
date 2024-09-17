@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Web w/HTML, CSS & JS</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h1, h2 {
+            font-size: 24px;
+            color: black;
+        }
+        .profile-pic {
+            width: 150px;
+            height: auto;
+        }
+        .bordered {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile Web w/HTML, CSS & JS</h1>
+    </header>
+    <main>
+        <!-- Replaced section with div to remove the Introduction heading -->
+        <div>
+            <p class="intro">
+                <img src="Caroline1.jpg" alt="Caroline Henderson" class="profile-pic" id="profile-pic">
+                My name is Caroline Henderson. I'm a new student at CCSF.
+            </p>
+            <p>
+                I love programming, which is why I've taken this course. I hope to become a better web developer.
+            </p>
+        </div>
+        
+        <!-- Second section with a heading -->
+        <section>
+            <h2>Technologies for this class</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </section>
+        
+        <!-- Third section with a heading -->
+        <section>
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/" target="_blank">MDN Web Docs</a> - Comprehensive resource for web developers, offering documentation and tutorials on HTML, CSS, JavaScript, and more.</li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a> - Provides tutorials and references on web development languages such as HTML, CSS, JavaScript, PHP, SQL, and Bootstrap.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Start animation button -->
+    <footer>
+        <button id="start-animation">Start animation</button>
+    </footer>
+
+    <!-- jQuery Animation Script -->
+    <script>
+        $(document).ready(function(){
+            $("#start-animation").click(function(){
+                // Animate the font size of the heading
+                $("h1").animate({fontSize: '40px'}, 1000)
+                        .animate({fontSize: '24px'}, 1000);
+
+                // Change the color of the heading and then back to original
+                setTimeout(function(){
+                    $("h1").css("color", "blue");
+                    setTimeout(function(){
+                        $("h1").css("color", "black");
+                    }, 1000);
+                }, 1000);
+
+                // Add border to the image after font color change
+                setTimeout(function(){
+                    $("#profile-pic").addClass("bordered");
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
